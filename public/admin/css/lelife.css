@@ -1,0 +1,146 @@
+.toolbar {
+    display: block;
+    background: #fff;
+    width: 100%;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.form-group.required .control-label:after {
+    content: "*";
+    color: red;
+}
+
+.ui-son {
+    display: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ui-son li {
+    list-style: none;
+    line-height: 45px;
+
+}
+
+.ui-son span {
+    text-indent: 10px;
+    display: block;
+    float: left;
+}
+
+.ui-son i {
+    display: block;
+    float: left;
+    margin-top: 14px;
+    margin-left: 40px;
+
+}
+
+.ui-son a {
+    display: block;
+    width: 100%;
+    height: 45px;
+    border-left: 3px solid #222D32;
+    background: #222D32;
+}
+
+.ui-son a:hover {
+    color: #fff;
+    background: #1E282C;
+    border-left: 3px solid #3c8dbc;
+}
+
+/* Used for the Switch effect: */
+.cb-enable, .cb-disable, .cb-enable span, .cb-disable span {
+    background: url(../img/form_onoff.png) repeat-x;
+    display: block;
+    float: left;
+}
+
+.cb-enable span, .cb-disable span {
+    font-weight: bold;
+    line-height: 24px;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.cb-enable span {
+    background-position: left -72px;
+    padding: 0 10px;
+}
+
+.cb-disable span {
+    background-position: right -144px;
+    padding: 0 10px;
+}
+
+.cb-disable.selected {
+    background-position: 0 -24px;
+}
+
+.cb-disable.selected span {
+    background-position: right -168px;
+    color: #fff;
+}
+
+.cb-enable.selected {
+    background-position: 0 -48px;
+}
+
+.cb-enable.selected span {
+    background-position: left -120px;
+    color: #fff;
+}
+
+.onoff label {
+    cursor: pointer;
+}
+
+.onoff {
+    position: relative;
+    overflow: hidden;
+    display: block;
+}
+
+.onoff input[type="radio"] {
+    position: absolute;
+    left: -999px;
+}
+
+.txt, select, .vmiddle, .type-file-text {
+    vertical-align: middle;
+}
+
+.onePicUpload {
+    display: block;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    line-height: 20px;
+    margin-left: 15px;
+    background: #eaf2ff;
+    color: #000000;
+    float: left;
+    width: 60px;
+    text-align: center;
+    border-radius: 5px
+}
+.picFileUpload {
+     display: block;
+     border: 1px solid #ccc;
+     font-size: 12px;
+     line-height: 20px;
+     margin-left: 15px;
+     background: #eaf2ff;
+     color: #000000;
+     float: left;
+     width: 60px;
+     text-align: center;
+     border-radius: 5px
+ }
+
+td dl {
+    margin-bottom: 0;
+}

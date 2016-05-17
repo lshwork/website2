@@ -1,0 +1,30 @@
+﻿<div class="list_con_box w1000 clearfix">
+
+  <div class="list_con_l fl">
+    <a href="recruit" class="leftMenu_a on">招贤纳士</a>
+
+
+  </div>
+  <div class="list_con_r fr">
+    <div class="list_con_bor">
+      <div class="list_con"></div>
+    </div>
+</div>
+</div>
+<script>
+  $(function(){
+    $.ajax( {
+      url:'/api/getJobs',
+      type:'GET',
+      success:function(obj) {
+        $.each(obj.jobs,function(index,item){
+          var str = "";
+          str = " <div class='tzqb' style='height:30px; line-height:30px; border-bottom:#ccc dotted 1px;'>" +
+                "<a href='/recruitDetail?id="+item._id+"' target='_blank'>"+item.title+"</a>" +
+                "</div>";
+          $(".list_con").append(str);
+        });
+      },error : function() {}
+    });
+  })
+</script>

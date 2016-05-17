@@ -1,0 +1,70 @@
+<div class="row">
+    <div class="col-md-9">
+        <div class="toolbar">
+            <form id="search_form" class="form-inline" method="get" action="/admin/jobs">
+                <div class="form-group">
+                    <label class="sr-only" for="title">职位</label>
+                    <input id="title" name="title" type="text" class="form-control" placeholder="职位查询" value="{{pagination.query.title}}">
+                </div>
+                <button class="btn btn-info" type="submit">
+                    <span class="glyphicon glyphicon-search"></span>
+                    搜索
+                </button>
+                <div class="btn-group pull-right">
+                    <a href="/admin/jobs/add" class="btn btn-success">
+                        <span class="glyphicon glyphicon-plus-sign"></span>
+                        新增
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-9">
+        <div class="box box-primary">
+            <div class="box-header">
+                <div class="pull-right">
+                    {{paginate pagination}}
+                </div>
+            </div>
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover table-striped">
+                    <tr>
+                        <th style="text-align: center">职位名称</th>
+                        <th style="text-align: center" >优先级</th>
+                        <th style="text-align: center" >是否可用</th>
+                        <th style="text-align: center" >创建人</th>
+                        <th style="text-align: center" >创建时间</th>
+                        <th style="text-align: center" >修改人</th>
+                        <th style="text-align: center" >修改时间</th>
+                        <th  style="text-align: center" >操作</th>
+                    </tr>
+                    {{#jobs}}
+                    <tr>
+                        <td  style="text-align: center">{{title}}</td>
+                        <td style="text-align: center">{{priority}}</td>
+                        <td style="text-align: center">{{#if enabled}}是{{else}}否{{/if}}</td>
+                        <td style="text-align: center">{{createdUser.realName}}</td>
+                        <td style="text-align: center">{{formatDate createdTime}}</td>
+                        <td style="text-align: center">{{createdUser.realName}}</td>
+                        <td style="text-align: center">{{ formatDate updatedTime}}</td>
+                        <td style="text-align: center">
+                            <a href="javascript:void(0)" class="btn btn-danger" onclick="deleteData('{{id}}','jobs')" >删除</a>
+                            <a href="/admin/jobs/edit?id={{id}}" class="btn btn-info">编辑</a>
+                        </td>
+                    </tr>
+                    {{/jobs}}
+                </table>
+            </div>
+            <div class="box-footer">
+                <div class="pull-right">
+                    {{paginate pagination}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>

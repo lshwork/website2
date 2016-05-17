@@ -1,0 +1,95 @@
+
+var env = process.env.NODE_ENV || 'development';
+
+console.log('env:', env);
+console.log('reload');
+
+var basePath=__dirname;
+module.exports = {
+    database: 'mongodb://localhost/website',
+    basePath:basePath,
+    upload:basePath+"\\public\\upload",
+    menus:[
+        {
+            parentName:"关于德天",
+            sons:[
+                {
+                    name:"德天介绍",
+                    shorthand:"dtjs"
+                },
+                {
+                    name:"企业文化",
+                    shorthand:"qywh"
+                },
+                {
+                    name:"董事长致辞",
+                    shorthand:"dszzc"
+                },
+                {
+                    name:"团队介绍",
+                    shorthand:"tdjs"
+                },
+                {
+                    name:"德天事迹",
+                    shorthand:"dtsj"
+                },
+            ]
+          },
+        {
+            parentName:"德天版图",
+            sons:[
+                {
+                name:"战略规划",
+                shorthand:"zlgh"
+                },
+                {
+                    name:"集团架构",
+                    shorthand:"jtjg"
+                },
+                {
+                    name:"产业布局",
+                    shorthand:"cybj"
+                }
+            ]
+        },
+        {
+            parentName:"集团业务",
+            sons:[
+                {
+                    name:"体育赛事运营",
+                    shorthand:"tyssyy"
+                },
+                {
+                    name:"体育服务",
+                    shorthand:"tyfw"
+                },
+                {
+                    name:"体育营销",
+                    shorthand:"tyyx"
+                },
+                {
+                    name:"体育传媒",
+                    shorthand:"tycm"
+                }
+            ]
+        },
+        {
+            parentName:"招纳贤士",
+            sons:[
+                {
+                    name:"招纳贤士",
+                    shorthand:"znxs"
+                }
+            ]
+        },
+        {
+            parentName:"联系我们",
+            sons:[
+                {
+                    name:"联系我们",
+                    shorthand:"lxwm"
+                }
+            ]
+        }
+    ]
+};

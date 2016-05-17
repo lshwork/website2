@@ -1,0 +1,97 @@
+{{#extend "stylesheets"}}
+<link rel="stylesheet" href="/public/plugins/bootstrap-switch/css/bootstrap-switch.min.css">
+{{/extend}}
+<div class="row">
+    <div class="col-md-8">
+        {{> alerts}}
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <i class="fa fa-edit"></i>
+                <h3 class="box-title">活动信息</h3>
+            </div>
+            <form id="userForm" role="form" action="/admin/activityApplies/post" method="post">
+                <input type="hidden" id="id" name="id" value="{{activityApply.id}}">
+                <input type="hidden" id="activityId" name="activityId" value="{{activityApply.activityId}}">
+                <div class="box-body">
+                    <div class="form-group ">
+                        <label for="activityName" class="control-label">活动名称</label>
+                        <input type="text" class="form-control" id="activityName" name="activityName" placeholder="活动名称"  value="{{activityApply.activityName}}">
+                    </div>
+                    <div class="form-group ">
+                        <label for="realName" class="control-label">姓名</label>
+                        <input type="text" class="form-control" id="realName" name="realName" placeholder="姓名" value="{{activityApply.realName}}">
+                    </div>
+                    <div class="form-group ">
+                        <label for="phone" class="control-label">手机号码</label>
+                        <input type="text" class="form-control" id="phone" name="phone" placeholder="手机号码"  value="{{activityApply.phone}}">
+                    </div>
+                    <div class="form-group ">
+                        <label for="sex" class="control-label">性别</label>
+                        <input type="checkbox" class="form-control" id="sex" name="sex" value="1" {{#equal activityApply.sex 1}}checked="checked"{{/equal}}>
+                    </div>
+                    <div class="form-group ">
+                        <label for="birthday" class="control-label">出生年月</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                            </div>
+                            <input type="text" class="form-control pull-right" id="birthday" name="birthday" placeholder="出生年月" value="{{formatDateYYYYMMDD activityApply.birthday}}">
+                        </div>
+                    </div>
+                    <div class="form-group ">
+                        <label for="nationality" class="control-label">国籍</label>
+                        <input type="text" class="form-control" id="nationality" name="nationality" placeholder="国籍"  value="{{activityApply.nationality}}">
+                    </div>
+                    <div class="form-group ">
+                        <label for="blood" class="control-label">血型</label>
+                        <select class="form-control" id="blood" name="blood"  >
+                            <option value="O" {{#equal activityApply.blood 'O'}}selected="" {{/equal}}>O型</option>
+                            <option value="A" {{#equal activityApply.blood 'A'}}selected="" {{/equal}}>A型</option>
+                            <option value="B" {{#equal activityApply.blood 'B'}}selected="" {{/equal}}>B型</option>
+                            <option value="AB" {{#equal activityApply.blood 'AB'}}selected="" {{/equal}}>AB型</option>
+                            <option value="OTHER" {{#equal activityApply.blood 'OTHER'}}selected="" {{/equal}}>其他</option>
+                        </select>
+                    </div>
+                    <div class="form-group ">
+                        <label for="location" class="control-label">居住地</label>
+                        <input type="text" class="form-control" id="location" name="location" placeholder="居住地"  value="{{activityApply.location}}">
+                    </div>
+                    <div class="form-group ">
+                        <label for="email" class="control-label">邮箱</label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="邮箱"  value="{{activityApply.email}}">
+                    </div>
+                    <div class="form-group ">
+                        <label for="contactAddress" class="control-label">通信地址</label>
+                        <input type="text" class="form-control" id="contactAddress" name="contactAddress" placeholder="通信地址"  value="{{activityApply.contactAddress}}">
+                    </div>
+                    <div class="form-group ">
+                        <label for="postCode" class="control-label">邮编</label>
+                        <input type="text" class="form-control" id="postCode" name="postCode" placeholder="邮编"  value="{{activityApply.postCode}}">
+                    </div>
+                    <div class="form-group ">
+                        <label for="contactName" class="control-label">紧急联系人</label>
+                        <input type="text" class="form-control" id="contactName" name="contactName" placeholder="紧急联系人"  value="{{activityApply.contactName}}">
+                    </div>
+                    <div class="form-group ">
+                        <label for="contactPhone" class="control-label">紧急联系人电话</label>
+                        <input type="text" class="form-control" id="contactPhone" name="contactPhone" placeholder="紧急联系人电话"  value="{{activityApply.contactPhone}}">
+                    </div>
+                    <div class="form-group ">
+                        <label for="guardianPhone" class="control-label">监护人电话</label>
+                        <input type="text" class="form-control" id="guardianPhone" name="guardianPhone" placeholder="监护人电话"  value="{{activityApply.guardianPhone}}">
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">保存</button>
+                    <a href="/admin/activityApplies/" class="btn btn-default pull-right">取消</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+{{#extend "scripts"}}
+<script src="/public/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script src="/public/admin/js/activityApplies/edit.js"></script>
+{{/extend}}

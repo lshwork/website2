@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-md-9">
+        <div class="toolbar">
+            <form id="activityApply_form" class="form-inline" method="get" action="/admin/activityApplies">
+                <div class="form-group">
+                    <label class="sr-only" for="activityName">活动名称</label>
+                    <select class="form-control" id="activityName" name="activityName" >
+                        <option value="" >活动名称</option>
+                        <option value="全程马拉松（42.195KM）" {{#equal pagination.query.activityName '全程马拉松（42.195KM）'}}selected="" {{/equal}} >全程马拉松（42.195KM）</option>
+                        <option value="10KM" {{#equal pagination.query.activityName '10KM'}}selected="" {{/equal}} >10KM</option>
+                        <option value="5KM" {{#equal pagination.query.activityName '5KM'}}selected="" {{/equal}} >5KM</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="activityName">性别</label>
+                    <select class="form-control" id="sex" name="sex" >
+                        <option value="" >性别</option>
+                        <option value="1" {{#equal pagination.query.sex '1'}}selected="" {{/equal}} >男</option>
+                        <option value="0" {{#equal pagination.query.sex '0'}}selected="" {{/equal}} >女</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="phone">手机号码</label>
+                    <input id="phone" name="phone" type="text" class="form-control" placeholder="手机号码查询" value="{{pagination.query.phone}}">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="realName">姓名</label>
+                    <input id="realName" name="realName" type="text" class="form-control" placeholder="姓名查询" value="{{pagination.query.realName}}">
+                </div>
+                <button class="btn btn-info" type="submit">
+                    <span class="glyphicon glyphicon-search"></span>
+                    搜索
+                </button>
+                <a onclick="downloadExcel()" class="btn btn-info "  >导出</a>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-9">
+        <div class="box box-primary">
+            <div class="box-header">
+                    <div class="pull-right">
+                        {{paginate pagination}}
+                    </div>
+            </div>
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover table-striped">
+                    <tr >
+                        <th style="text-align: center">活动名称</th>
+                        <th style="text-align: center">姓名</th>
+                        <th style="text-align: center">性别</th>
+                        <th style="text-align: center">出生年月</th>
+                        <th style="text-align: center">国籍</th>
+                        <th style="text-align: center">手机号码</th>
+                        <th style="text-align: center">电子邮箱</th>
+                        <th style="text-align: center">操作</th>
+                    </tr>
+                    {{#activityApplies}}
+                    <tr>
+                        <td style="text-align: center">{{activityName}}</td>
+                        <td style="text-align: center">{{realName}}</td>
+                        <td style="text-align: center">
+                            {{#equal sex 1}}男{{/equal}}
+                            {{#equal sex 0}}女{{/equal}}
+                        </td>
+                        <td style="text-align: center">{{birthday}}</td>
+                        <td style="text-align: center">{{nationality}}</td>
+                        <td style="text-align: center">{{phone}}</td>
+                        <td style="text-align: center">{{email}}</td>
+                        <td style="text-align: center">
+                            <a href="javascript:void(0)" class="btn btn-danger" onclick="deleteData('{{id}}','activityApplies')" >删除</a>
+                            <a href="/admin/activityApplies/edit?id={{id}}" class="btn btn-info">编辑</a>
+                        </td>
+                    </tr>
+                    {{/activityApplies}}
+                </table>
+            </div>
+            <div class="box-footer">
+                <div class="pull-right">
+                    {{paginate pagination}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+    </div>
+</div>
+{{#extend "scripts"}}
+<script src="/public/admin/js/activityApplies/index.js"></script>
+{{/extend}}

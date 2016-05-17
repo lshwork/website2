@@ -1,0 +1,183 @@
+@charset "utf-8";
+/** 清除边距 **/
+* {-webkit-tap-highlight-color: rgba(0, 0, 0, 0);}
+/* structural elements 结构元素 */           /* list elements 列表元素 */			/* form elements 表单元素 */		/* table elements 表格元素 */
+body,h1,h2,h3,h4,h5,h6,p,blockquote,dl,dt,dd,ul,ol,li,a,span,i,b,form,fieldset,legend,button,input,textarea,select,th,td{margin: 0;padding: 0;}
+/** 字体设置 **/
+body,button,input,select,textarea/* for ie */ {font: 12px/1.5 "微软雅黑", Arial, Helvetica, sans-serif;	color: #333;}
+h1,h2,h3,h4,h5,h6 {font-size: 100%;font-weight:normal; line-height:100%;}
+address,em,i {font-style: normal;} /* 将斜体扶正 */
+/*去除元素轮廓---fbx---*/
+div,table,form,input,button,select,textarea,fieldset,legend {outline: none;border:0;}/* for google / safari*/
+/** 重置列表元素 **/
+ul,ol,li {list-style: none outside none;}
+/** 重置链接元素 **/
+a {text-decoration: none;color: #333;cursor: pointer;line-height:100%;}
+/*a:hover {color: #f40;text-decoration: none;}*/
+/* img 搭车：让链接里的 img 无边框 */
+fieldset,img {border: 0;}
+/* 使得表单元素在 ie 下能继承字体大小 */
+button,input,select,textarea {font-size: 100%;}
+/** 重置表格元素 **/
+table {border-collapse: collapse;border-spacing: 0;}
+/** 重置元素垂直居中 **/
+img,input,select,textarea,button {vertical-align: middle;}
+/**清除浮动*/
+.clearfix:after{content:".";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{*zoom:1}
+.pl30{padding-left: 30px;}
+.pl45{padding-left: 45px;}
+.pl50{padding-left:50px;}
+.pl90{padding-left:90px;}
+.pr20{padding-right: 20px;}
+.pr40{padding-right: 40px;}
+.fz45{font-size: 45px;}
+.fl{float: left;}
+.fr{float: right;}
+.tac{text-align: center;}
+.oh{overflow: hidden;}
+.left45{left: 45px;}
+.right45{right: 45px;}
+
+
+.jtlists{width:750px; height:auto;overflow:hidden;}
+.jtlists li{float:left; width:355px; height:300px; overflow:hidden; margin:0 20px 16px 0;}
+.jtlists li div:nth-child(1){width:353px; height:198px; border:#ccc solid 1px;}
+.jtlists li div:nth-child(1) img{width:353px; height:198px;}
+.jtlists li div:nth-child(2){color: #d71920;font-size: 12px; height:30px; line-height:30px; padding-left:13px;}
+.jtlists li div:nth-child(3){ font-size:16px; font-weight:bold;padding-left:15px; color:#333; line-height:20px;}
+
+/*content css*/
+.con_list_box{width:750px;overflow: hidden; height:auto}
+.con_list_box li{float: left;width:355px;height: 300px;overflow:hidden;margin-bottom: 16px;margin-right: 20px;}
+.con_list_box .con_img_bor{width:351px;height:192px;border:2px solid #cfcfcf; background:url(http://115.28.218.238/images/defaultpic.gif) no-repeat;}
+.con_img_bor img{width: 100%;height: 100%;}
+.con_info_bor{width:335px;height:80px;padding:12px 10px;overflow: hidden;}
+.con_info_bor .con_data{color: #d71920;font-size: 12px;height: 22px;line-height: 22px;}
+.con_info_bor .con_info{font-size: 16px;line-height: 24px;}
+.pag_box{height: 30px;padding-left: 5px;overflow: hidden;}
+.pag_box a{display: block;width: 100%;height: 100%;line-height: 30px;font-size: 14px;color: #fff;text-align: center;}
+.pag_box span,.pag_btn li{width:30px;height: 30px;float: left;background:#d71920;margin-right: 10px;}
+.pag_btn li.active{background:#333;}
+.pag_btn .dian{background:#fff;color: #d71920;font-size: 20px;text-align: center;line-height: 20px;}
+.list_nav li:last-child:after{content:"";padding: 0;}
+/*投资列表样式*/
+/*.tzqb {height:30px;line-height:30px; padding-left:30px;font-size:14px;border-bottom:#555 1px dotted;}
+.tzqb a{height:50px;line-height:50px; padding-left:30px;font-size:16px;}
+.tzqb a:hover{color:#d71920}
+.tzqb span{font-size:14px; color:#c00}
+.tzqbt{ float:right; margin-right:5px;h seight:50px;line-height:50px;}*/
+.tzqb{ height:30px; line-height:30px;font-size:14px;}
+.tzqb a{height:30px;line-height:30px; padding-left:5px;}
+.tzqb a:hover{color: #d71920;font-size: 16px;}
+.tzqb span{ float:right;}
+
+
+
+.jtnews{width:750px;overflow: hidden; height:auto}
+.jtnews li{float:left;width:720px;height: 30px; line-height:30px;overflow:hidden; border-bottom:#ddd dotted 1px; padding-left:10px;}
+.jtnews .pagelist li{width:auto;}
+.jtnews li a{color:#333; font-size:14px; text-decoration:none;}
+.jtnews li a:hover{color: #d71920;font-size: 16px;}
+.jtnews li span{ float:right; display:block; height:30px; line-height:30px; width:110px;}
+
+
+
+
+
+
+.pages{ width:100%; height:60px;clear:both}
+.pages ul{float:left; padding:10px;}
+.pages ul li{float:left; margin-right:10px; padding:5px 10px; background:#c00; transform:skew(-16deg); color:#fff;}
+.pages ul li a{color:#fff; font-size:12px;padding:2px 5px;}
+.pages ul li a:hover{ font-weight:bold;}
+.pages ul li.thisclass, .pages ul li.thisclass a { background-color: #333; padding: 5px 15px; font-weight: bold; color:#fff; font-size:14px;}
+
+
+.pull-right {
+    float: right!important;
+    margin-top: 15px;
+}
+.no-margin {
+    margin: 0 !important;
+}
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+.pagination > li {
+    display: inline;
+}
+.pagination > li > a,
+.pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.pagination > li:first-child > a,
+.pagination > li:first-child > span {
+    margin-left: 0;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+.pagination > li:last-child > a,
+.pagination > li:last-child > span {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+    z-index: 3;
+    color: #23527c;
+    background-color: #eee;
+    border-color: #ddd;
+}
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+    color: #777;
+    cursor: not-allowed;
+    background-color: #fff;
+    border-color: #ddd;
+}
+.pagination-sm > li > a,
+.pagination-sm > li > span {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+}
+.pagination-sm > li:first-child > a,
+.pagination-sm > li:first-child > span {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.pagination-sm > li:last-child > a,
+.pagination-sm > li:last-child > span {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}

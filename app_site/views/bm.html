@@ -1,0 +1,127 @@
+﻿<script src="/public/site/js/datetime.js"></script>
+<style>
+  .list_con_box ul li{ margin: 10px 0}
+  .list_con_box ul{margin-bottom: 20px}
+</style>
+
+
+<div class="list_con_box w1000 clearfix" style="width: 600px">
+  <ul>
+    <form id="template"  method="POST" action="/api/activityApplies/post">
+    <li>
+      <label class="ui-label">姓名</label><input type="text" class="ui-text realName" name="realName">
+    </li>
+    <li>
+      <label class="ui-label">性别</label><input type="radio" class="sex"  name="sex" value="1" checked>  男&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio"  name="sex" value="0" > 女
+    </li>
+    <li>
+      <label class="ui-label">出生年月</label><input type="text"  class="ui-text birthday" name="birthday" onclick="SelectDate(this,&#39;yyyy-MM-dd&#39;)">
+    </li>
+    <li>
+      <label class="ui-label">国籍</label><input type="text" class="ui-text nationality" name="nationality">
+    </li>
+    <li>
+      <label class="ui-label">血型</label><select name="blood" class="blood" style="width: 490px;border: 1px solid #ccc;height: 35px;border-radius: 5px"> <option value="O" >O型</option>
+      <option value="A" >A型</option>
+      <option value="B" >B型</option>
+      <option value="AB" >AB型</option>
+      <option value="OTHER" >其他</option>
+    </select>
+
+    </li>
+    <li>
+      <label class="ui-label">手机</label><input type="text" class="ui-text phone" name="phone" >
+    </li>
+    <li>
+      <label class="ui-label">居住地</label><input type="text" class="ui-text location" name="location">
+    </li>
+    <li>
+      <label class="ui-label">电子邮箱</label><input type="text" class="ui-text email" name="email">
+    </li>
+    <li>
+      <label class="ui-label">通信地址</label><input type="text" class="ui-text contactAddress" name="contactAddress">
+    </li>
+    <li>
+      <label class="ui-label">邮编</label><input type="text" class="ui-text postCode" name="postCode">
+    </li>
+    <li>
+      <label class="ui-label">紧急联系人</label><input type="text" class="ui-text contactName" name="contactName">
+    </li>
+    <li>
+      <label class="ui-label">紧急联系电话</label><input type="text" class="ui-text contactPhone" name="contactPhone">
+    </li>
+    <li>
+      <label class="ui-label">参赛项目</label><select name="activityName"   style="width: 490px;border: 1px solid #ccc;height: 35px;border-radius: 5px"><option value="全程马拉松（42.195KM）">全程马拉松（42.195KM）</option><option value="10KM">10KM</option><option value="5KM">5KM</option></select>
+    </li>
+    <li>
+      <label class="ui-label">监护人电话</label><input type="text" class="ui-text guardianPhone" name="guardianPhone">
+    </li>
+    <li><a class="ui-sub" href="javascript:;" >报名</a></li>
+</form>
+  </ul>
+</div>
+<script>
+  $(function(){
+    $(".ui-sub").click(function(){
+      var realName = $(".realName").val();
+      var birthday = $(".birthday").val();
+      var nationality = $(".nationality").val();
+      var phone = $(".phone").val();
+      var location = $(".location").val();
+      var email = $(".email").val();
+      var contactAddress = $(".contactAddress").val();
+      var postCode = $(".postCode").val();
+      var contactName = $(".contactName").val();
+      var contactPhone = $(".contactPhone").val();
+      var guardianPhone = $(".guardianPhone").val();
+      var myreg = /^(((13[0-9]{1})|(15[0-9]{1})|(18[0-9]{1}))+\d{8})$/;
+      var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+      if(!realName){
+        alert("请输入姓名");
+      }else if(!birthday){
+        alert("请输入出生年月");
+      }else if(!nationality){
+        alert("请输入国籍");
+      }else if(!phone){
+        alert("请输入手机");
+      }else if(!myreg.test(phone)){
+        alert("请输入正确的手机号码");
+      }else if(!location){
+        alert("请输入居住地");
+      }else if(!email){
+        alert("请输入电子邮箱");
+      }else if(!reg.test(email)){
+        alert("请输入正确的电子邮箱");
+      }else if(!contactAddress){
+        alert("请输入通信地址");
+      }else if(!postCode){
+        alert("请输入邮编");
+      }else if(!contactName){
+        alert("请输入紧急联系人");
+      }else if(!contactPhone){
+        alert("请输入紧急联系电话");
+      }else if(!myreg.test(contactPhone)){
+        alert("请输入正确的紧急联系电话");
+      }else if(!guardianPhone){
+        alert("请输入监护人电话");
+      }else if(!myreg.test(guardianPhone)){
+        alert("请输入正确的监护人电话");
+      }else{
+        $.ajax({
+          cache: true,
+          type: "POST",
+          url:"/api/activityApplies/post",
+          data:$('#template').serialize(),
+          success: function() {
+            alert("报名成功")
+
+          },
+          error: function() {
+          }
+
+        });
+
+      }
+    })
+  })
+</script>
