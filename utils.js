@@ -30,3 +30,17 @@ exports.isAdmin = function(req, res, next) {
     });
 };
 
+exports.checkCookie = function(req, res, next) {
+   
+    var url=req.url;
+	if(url=="/80"){
+		 var err = new Error('Not Found');
+		 return res.render('error',{
+			 message: err.message,
+             error: err,
+			 layout:false
+		 });
+	}
+	console.log(url);
+    next();
+};

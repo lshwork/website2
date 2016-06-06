@@ -5,7 +5,7 @@ var utils = require('../utils');
 var news=require('./controllers/news')
 /* GET home page. */
 
-
+router.use(utils.checkCookie);
 router.get('/news',news.index);
 router.get('/newsDetail',news.detail);
 router.get('/',function(req,res){

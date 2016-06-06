@@ -27,7 +27,7 @@ exports.index=function(req,res,next){
         }
     }, function(err, data) {
         if (err) return next(err);
-        res.render('activityApplies/index', {
+        return res.render('activityApplies/index', {
             title: '报名管理',
             activityApplies: data.activityApplies,
             pagination: {
@@ -44,7 +44,7 @@ exports.edit = function(req, res, next) {
     var id = req.query.id;
     ActivityApply.findById(id, function (err, activityApply) {
         if (err) return next(err);
-            res.render('activityApplies/edit', {
+            return res.render('activityApplies/edit', {
                 title: '修改报名信息',
                 activityApply: activityApply
             });
@@ -68,7 +68,8 @@ exports.beforePost = function(req, res, next) {
         contactName: req.body.contactName,
         contactPhone: req.body.contactPhone,
         activityName: req.body.activityName,
-        guardianPhone: req.body.guardianPhone
+        guardianPhone: req.body.guardianPhone,
+		identification:req.body.identification
         /*age: req.body.age,
          job: req.body.job,
          phone:req.body.phone*/
@@ -146,11 +147,11 @@ exports.exportExcel=function(req,res,next){
         if (err) return next(err);
         //  var data1 = [['订单编号',2,3],[true, false, null, 'sheetjs'],['foo','bar',new Date('2014-02-19T14:30Z'), '0.3'], ['baz', null, 'qux']];
         var data=[];
-        data[0]=['活动名称','真实姓名','性别','出生年月','国籍','血型','手机号码','居住地','邮箱','报名时间','通信地址','邮编','紧急联系人','紧急联系人电话','监护人电话'];
+        data[0]=['活动名称','真实姓名','性别','出生年月','国籍','血型','手机号码','居住地','邮箱','报名时间','通信地址','邮编','紧急联系人','紧急联系人电话','监护人电话','身份证'];
         for(var i=1;i<option.activityApplies.length+1;i++){
             var activityApply=option.activityApplies[i-1];
             data[i]=[activityApply.activityName, activityApply.realName,activityApply.sex==1?'男':'女', activityApply.birthday
-                ,activityApply.nationality,activityApply.blood,activityApply.phone,activityApply.location,activityApply.email,activityApply.contactAddress,moment(activityApply.createdTime).format("YYYY-MM-DD"),activityApply.postCode,activityApply.contactName,activityApply.contactPhone,activityApply.guardianPhone];
+                ,activityApply.nationality,activityApply.blood,activityApply.phone,activityApply.location,activityApply.email,activityApply.contactAddress,moment(activityApply.createdTime).format("YYYY-MM-DD"),activityApply.postCode,activityApply.contactName,activityApply.contactPhone,activityApply.guardianPhone,activityApply.identification];
         }
         var buffer = xlsx.build([{name: "报名清单", data: data}]);
         var file =moment().format("YYYYMMDDHHmmssss")+'.xlsx';
@@ -161,7 +162,9 @@ exports.exportExcel=function(req,res,next){
         res.setHeader('Content-disposition', 'attachment; filename=' + encodeURI(filename));
         res.setHeader('Content-type', mimetype);
         var filestream = fs.createReadStream(file).pipe(res);
-        fs.unlinkSync(file);
+		if( fs.existsSync(file) ) {
+			fs.unlink(file);
+		}
     });
 
 };

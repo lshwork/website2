@@ -10,6 +10,7 @@ var userSchema = new mongoose.Schema({
     username: { type: String, required: false, index: { unique: true, sparse : true } },
     password: { type: String },
     isAdmin: { type: Boolean,default:false },
+	valid:{type:Number,default:1},
     phone: { type: String },
     realName: { type: String},
     deleted: { type: Boolean, default: false, index: true },

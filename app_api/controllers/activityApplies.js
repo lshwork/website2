@@ -21,7 +21,8 @@ exports.beforePost = function(req, res, next) {
         contactName: req.body.contactName,
         contactPhone: req.body.contactPhone,
         activityName: req.body.activityName,
-        guardianPhone: req.body.guardianPhone
+        guardianPhone: req.body.guardianPhone,
+		identification:req.body.identification
         /*age: req.body.age,
         job: req.body.job,
         phone:req.body.phone*/

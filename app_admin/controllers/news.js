@@ -21,7 +21,7 @@ exports.index = function (req, res, next) {
         }
     }, function (err, data) {
         if (err) return next(err);
-        res.render('news/index', {
+        return res.render('news/index', {
             title: '新闻管理',
             news: data.news,
             pagination: {
@@ -36,7 +36,7 @@ exports.index = function (req, res, next) {
 
 
 exports.add = function (req, res, next) {
-    res.render('news/edit', {
+    return res.render('news/edit', {
         title: '添加新闻',
         singleNew: {enabled: true}
     });
@@ -45,7 +45,7 @@ exports.edit = function (req, res, next) {
     var id = req.query.id;
     New.findById(id).exec(function (err, singleNew) {
         if (err) return next(err);
-        res.render('news/edit', {
+        return res.render('news/edit', {
             title: '修改新闻',
             singleNew: singleNew
         });
@@ -105,7 +105,7 @@ exports.post = function (req, res, next) {
         singleNew.updatedUser=currentUserId;
         singleNew.save(function (err) {
             if (err) return next(err);
-            res.redirect('/admin/news/');
+           return  res.redirect('/admin/news/');
         });
     }
 };
@@ -147,7 +147,7 @@ exports.updateDeleteStu = function (req, res, next) {
         }
         singleNew.save(function (err) {
             if (err) return next(err);
-            res.json({
+            return res.json({
                 success: true
             });
         });

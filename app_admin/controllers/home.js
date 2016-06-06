@@ -25,7 +25,7 @@ exports.index = function (req, res, next) {
         }
     }, function (err, data) {
         if (err) return next(err);
-        res.render('index', {
+        return res.render('index', {
             title: '主页',
             userCount: data.userCount,
             activityAppliesCount: data.activityAppliesCount,
@@ -35,7 +35,7 @@ exports.index = function (req, res, next) {
 };
 
 exports.login = function (req, res) {
-    res.render('login', {layout: false});
+    return res.render('login', {layout: false});
 };
 exports.postLogin = function (req, res, next) {
     req.checkBody('username', '用户名不能为空').notEmpty();
@@ -85,7 +85,7 @@ exports.postLogin = function (req, res, next) {
                 httpOnly: true,
                 path: '/'
             });
-            res.redirect('/admin/');
+            return res.redirect('/admin/');
         });
     });
 };

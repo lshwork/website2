@@ -8,10 +8,12 @@ var config = require('../../config');
 var fs = require('fs');
 
 exports.list = function (req, res, next) {
+    var start = parseInt(req.query.start || 0);
+    var limit = 10;
     var q = {deleted: false,type:3,enabled:true};
     async.parallel({
         jobs: function (callback) {
-            New.find(q,{title:1,priority:1}).sort({priority:-1,createdTime: -1}).exec(callback);
+            New.find(q,{title:1,priority:1}).skip(start).limit(limit).sort({priority:-1,createdTime: -1}).exec(callback);
         }
     }, function (err, data) {
         if (err) return next(err);

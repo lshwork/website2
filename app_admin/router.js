@@ -36,8 +36,8 @@ router.post('/postLogin', home.postLogin);
 
 /*router.post('/pic/upload/:imageType', upload.single('image'), home.upload);
 router.post('/pic/uploadKindEditor/:imageType', upload.single('image'), home.uploadKindEditor);*/
-router.post('/pic/upload', upload.single('file'), home.upload);
 router.use(utils.isAdmin);
+router.post('/pic/upload', upload.single('file'), home.upload);
 
 
 router.get('/', home.index);

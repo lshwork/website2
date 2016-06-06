@@ -31,7 +31,7 @@ exports.index = function (req, res, next) {
         }
     }, function (err, data) {
         if (err) return next(err);
-        res.render('users/index', {
+        return res.render('users/index', {
             title: '用户管理',
             users: data.users,
             pagination: {
@@ -127,7 +127,7 @@ exports.post = function (req, res, next) {
         user.password = req.body.password;
         user.save(function (err) {
             if (err) return next(err);
-            res.redirect(redirect);
+            return res.redirect(redirect);
         });
     }
 };

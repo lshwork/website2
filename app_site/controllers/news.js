@@ -25,7 +25,7 @@ exports.index = function (req, res, next) {
         }
     }, function (err, data) {
         if (err) return next(err);
-        res.render('news', {
+        return res.render('news', {
             title: '新闻管理',
             news: data.news,
             pagination: {
@@ -44,7 +44,7 @@ exports.detail = function (req, res, next) {
     New.findById(id).populate('createdUser',{realName:1}).exec(function (err, singleNew) {
         if (err) return next(err);
         return res.render('newsDetail', {
-            title: '新闻详情',
+            title: '详情',
             singleNew: singleNew
         });
     });

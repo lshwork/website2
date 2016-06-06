@@ -9,7 +9,7 @@ var fs = require('fs');
 
 exports.index = function (req, res, next) {
     var start = parseInt(req.query.start || 0);
-    var limit = 2;
+    var limit = 10;
     var q = {deleted: false,enabled:true};
     async.parallel({
         news: function (callback) {
@@ -37,7 +37,7 @@ exports.index = function (req, res, next) {
 exports.add = function (req, res, next) {
     res.render('news/edit', {
         title: '添加新闻',
-        singleNew: {enabled: true},
+        singleNew: {enabled: true}
     });
 };
 exports.edit = function (req, res, next) {
