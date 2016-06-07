@@ -1,0 +1,42 @@
+{{#extend "stylesheets"}}
+<link rel="stylesheet" href="/public/plugins/bootstrap-switch/css/bootstrap-switch.min.css">
+{{/extend}}
+<div class="row">
+    <div class="col-md-10">
+        {{> alerts}}
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <i class="fa fa-edit"></i>
+                <h3 class="box-title">内容信息</h3>
+            </div>
+            <form id="contentsForm" role="form" action="/admin/contents/post" method="post" >
+                <input type="hidden" id="id" name="id" value="{{content.id}}">
+                <input type="hidden" id="imageType" value="content" >
+                <div class="box-body">
+
+                    <div class="form-group required">
+                        <label for="parentName" class="control-label">父菜单名</label>
+                        <input type="text" class="form-control" id="parentName" name="parentName" placeholder="父菜单名" readonly="readonly" value="{{content.parentName}}">
+                    </div>
+                    <div class="form-group required">
+                        <label for="name" class="control-label">菜单名</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="菜单名" readonly="readonly" value="{{content.name}}">
+                    </div>
+                    <div class="form-group required">
+                        <label for="content" class="control-label">内容</label>
+                        <textarea style="height:300px;width:800px;visibility:hidden;" id="content" name="content" >{{content.content}}</textarea>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">保存</button>
+                    <a href="/admin/contents/" class="btn btn-default pull-right">取消</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+{{#extend "scripts"}}
+<script src="/public/admin/js/contents/edit.js"></script>
+{{/extend}}

@@ -15,40 +15,40 @@ module.exports = {
             sons:[
                 {
                     name:"德天介绍",
-                    shorthand:"dtjs"
+                    shorthand:"about"
                 },
                 {
                     name:"企业文化",
-                    shorthand:"qywh"
+                    shorthand:"culture"
                 },
                 {
                     name:"董事长致辞",
-                    shorthand:"dszzc"
+                    shorthand:"chairman"
                 },
                 {
                     name:"团队介绍",
-                    shorthand:"tdjs"
+                    shorthand:"team"
                 },
                 {
                     name:"德天事迹",
-                    shorthand:"dtsj"
+                    shorthand:"deeds"
                 },
             ]
-          },
+        },
         {
             parentName:"德天版图",
             sons:[
                 {
-                name:"战略规划",
-                shorthand:"zlgh"
+                    name:"战略规划",
+                    shorthand:"territory"
                 },
                 {
                     name:"集团架构",
-                    shorthand:"jtjg"
+                    shorthand:"framework"
                 },
                 {
                     name:"产业布局",
-                    shorthand:"cybj"
+                    shorthand:"industry"
                 }
             ]
         },
@@ -57,28 +57,19 @@ module.exports = {
             sons:[
                 {
                     name:"体育赛事运营",
-                    shorthand:"tyssyy"
+                    shorthand:"operate"
                 },
                 {
                     name:"体育服务",
-                    shorthand:"tyfw"
+                    shorthand:"service"
                 },
                 {
                     name:"体育营销",
-                    shorthand:"tyyx"
+                    shorthand:"marketing"
                 },
                 {
                     name:"体育传媒",
-                    shorthand:"tycm"
-                }
-            ]
-        },
-        {
-            parentName:"招纳贤士",
-            sons:[
-                {
-                    name:"招纳贤士",
-                    shorthand:"znxs"
+                    shorthand:"media"
                 }
             ]
         },
@@ -87,7 +78,7 @@ module.exports = {
             sons:[
                 {
                     name:"联系我们",
-                    shorthand:"lxwm"
+                    shorthand:"contact"
                 }
             ]
         }

@@ -19,5 +19,25 @@ admin.save(function (err) {
     console.log('creating an admin success!');
 });
 
+var contents=config.menus;
+
+async.each(contents,function(content,callback){
+    var parentName=content.parentName;
+    var sons=content.sons;
+    async.each(sons,function(son,callback1){
+        var name=son.name;
+        var shorthand=son.shorthand;
+        var content1=new Content({
+            parentName:parentName,
+            name:name,
+            shorthand:shorthand
+        });
+        content1.save(callback1);
+    },function(err){
+        callback(null);
+    });
+},function(err){
+
+});
 
 

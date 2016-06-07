@@ -29,6 +29,7 @@ var users = require('./controllers/users');
 var news = require('./controllers/news');
 var jobs = require('./controllers/jobs');
 var activityApplies=require('./controllers/activityApplies');
+var contents=require('./controllers/contents');
 router.get('/login', home.login);
 router.post('/postLogin', home.postLogin);
 /*router.use(utils.isAdmin);*/
@@ -68,5 +69,11 @@ router.post('/activityApplies/post', activityApplies.beforePost, activityApplies
 router.get('/activityApplies/edit', activityApplies.edit);
 router.get('/activityApplies/exportExcel',activityApplies.exportExcel);
 router.post('/activityApplies/delete', activityApplies.updateDeleteStu);
+
+router.get('/contents',contents.index);
+router.get('/contents/add', contents.add);
+router.post('/contents/post', contents.beforePost, contents.post);
+router.get('/contents/edit', contents.edit);
+router.post('/contents/delete',contents.updateDeleteStu);
 
 module.exports = router;
