@@ -8,6 +8,10 @@ var contents=require('./controllers/contents');
 
 router.get('/news',news.index);
 router.get('/newsDetail',news.detail);
+
+router.get('/industry',news.industryIndex);
+router.get('/industryDetail',news.industryDetail);
+
 router.get('/',function(req,res){
     return res.render('index')
 });
@@ -22,7 +26,6 @@ router.get('/deeds',contents.index);
 router.get('/culture',contents.index);
 router.get('/territory',contents.index);
 router.get('/framework',contents.index);
-router.get('/industry',contents.index);
 router.get('/service',contents.index);
 router.get('/operate',contents.index);
 router.get('/marketing',contents.index);

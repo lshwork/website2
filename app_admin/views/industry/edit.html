@@ -1,0 +1,46 @@
+{{#extend "stylesheets"}}
+<link rel="stylesheet" href="/public/plugins/bootstrap-switch/css/bootstrap-switch.min.css">
+{{/extend}}
+<div class="row">
+    <div class="col-md-10">
+        {{> alerts}}
+        <div class="box box-info">
+            <div class="box-header with-border">
+                <i class="fa fa-edit"></i>
+                <h3 class="box-title">产业布局</h3>
+            </div>
+            <form id="newsForm" role="form" action="/admin/industry/post" method="post" >
+                <input type="hidden" id="id" name="id" value="{{singleNew.id}}">
+                <input type="hidden" id="type" name="type" value="4">
+                <div class="box-body">
+                    <div class="form-group required">
+                        <label for="title" class="control-label">产业布局标题</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="产业布局标题" value="{{singleNew.title}}">
+                    </div>
+                    <div class="form-group ">
+                        <label for="priority" class="control-label">优先级</label>
+                        <input type="text" onkeyup="value=this.value.replace(/\D+/g,'')" class="form-control" id="priority" name="priority" placeholder="数字越大优先级越高" value="{{singleNew.priority}}">
+                    </div>
+                    <div class="form-group required">
+                        <label  for="enabled" class="control-label">是否启用</label>
+                        <input type="checkbox" id="enabled" name="enabled" {{#if singleNew.enabled}}checked="checked"{{/if}}>
+                    </div>
+                    <div class="form-group required">
+                        <label for="content" class="control-label">内容</label>
+                        <textarea class="form-control" style="height:300px;visibility:hidden;" id="content" name="content" >{{singleNew.content}}</textarea>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">保存</button>
+                    <a href="/admin/industry/" class="btn btn-default pull-right">取消</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+{{#extend "scripts"}}
+<script src="/public/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<script src="/public/admin/js/news/edit.js"></script>
+{{/extend}}
